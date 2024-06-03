@@ -27,8 +27,27 @@ const newsSlice = createSlice({
             state.isLoading = false;
             state.error = action.payload;
         },
+        fetchBreakingNewsRequest(state) {
+            state.isLoading = true;
+        },
+        fetchBreakingNewsSuccess(state, action: PayloadAction<any[]>) {
+            state.isLoading = false;
+            state.newsItems = action.payload;
+        },
+        fetchBreakingNewsFailure(state, action: PayloadAction<string>) {
+            state.isLoading = false;
+            state.error = action.payload;
+        },
     },
 });
 
-export const { fetchNewsRequest, fetchNewsSuccess, fetchNewsFailure } = newsSlice.actions;
+export const {
+    fetchNewsRequest,
+    fetchNewsSuccess,
+    fetchNewsFailure,
+    fetchBreakingNewsRequest,
+    fetchBreakingNewsSuccess,
+    fetchBreakingNewsFailure,
+} = newsSlice.actions;
+
 export default newsSlice.reducer;
