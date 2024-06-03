@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import DOMPurify from 'dompurify';
 
 function NewsFeed() {
     const [newsItems, setNewsItems] = useState([]);
@@ -48,6 +49,11 @@ function NewsFeed() {
                     {newsItems.map((item) => (
                         <li key={item.url}>
                             <h3>{item.title}</h3>
+                            <div
+                                dangerouslySetInnerHTML={{
+                                    __html: DOMPurify.sanitize(item.content_html || item.summary),
+                                }}
+                            />
                             <p>{item.description}</p>
                             <a href={item.url} target="_blank" rel="noopener noreferrer">Read more</a>
                         </li>
