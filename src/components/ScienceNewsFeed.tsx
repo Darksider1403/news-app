@@ -1,27 +1,27 @@
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import {fetchWorldNews} from '../actions/newsActions';
+import {fetchScienceNews} from '../actions/newsActions';
 import DOMPurify from 'dompurify';
 import {RootState, AppDispatch} from '../store';
 
-const WorldNewsFeed: React.FC = () => {
+const ScienceNewsFeed: React.FC = () => {
     const dispatch: AppDispatch = useDispatch();
-    const newsState = useSelector((state: RootState) => state.news);
+    const newsState = useSelector((state: RootState) => state.scienceNews);
     const {newsItems, isLoading, error} = newsState;
 
     useEffect(() => {
-        dispatch(fetchWorldNews());
+        dispatch(fetchScienceNews());
     }, [dispatch]);
 
     return (
         <div className="container mx-auto p-4">
             {isLoading ? (
-                <p className="text-center text-gray-500">Loading world news items...</p>
+                <p className="text-center text-gray-500">Loading science news items...</p>
             ) : error ? (
                 <p className="text-center text-red-500">{error}</p>
             ) : newsItems.length > 0 ? (
                 <ul className="space-y-4">
-                    {newsItems.map((item, index) => (
+                    {newsItems.map((item) => (
                         <li key={item.url} className="bg-white p-4 shadow-md rounded-lg">
                             <h3>{item.title}</h3>
                             <div className="prose"
@@ -36,10 +36,10 @@ const WorldNewsFeed: React.FC = () => {
                     ))}
                 </ul>
             ) : (
-                <p className="text-center text-gray-500">No world news items found.</p>
+                <p className="text-center text-gray-500">No science news items found.</p>
             )}
         </div>
     );
 };
 
-export default WorldNewsFeed;
+export default ScienceNewsFeed;

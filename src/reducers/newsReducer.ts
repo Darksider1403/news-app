@@ -1,4 +1,4 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 
 interface NewsState {
     newsItems: Array<any>;
@@ -49,6 +49,28 @@ const newsSlice = createSlice({
             state.isLoading = false;
             state.error = action.payload;
         },
+        fetchBusinessNewsRequest(state) {
+            state.isLoading = true;
+        },
+        fetchBusinessNewsSuccess(state, action: PayloadAction<any[]>) {
+            state.isLoading = false;
+            state.newsItems = action.payload;
+        },
+        fetchBusinessNewsFailure(state, action: PayloadAction<string>) {
+            state.isLoading = false;
+            state.error = action.payload;
+        },
+        fetchScienceNewsRequest(state) {
+            state.isLoading = true;
+        },
+        fetchScienceNewsSuccess(state, action: PayloadAction<any[]>) {
+            state.isLoading = false;
+            state.newsItems = action.payload;
+        },
+        fetchScienceNewsFailure(state, action: PayloadAction<string>) {
+            state.isLoading = false;
+            state.error = action.payload;
+        },
     },
 });
 
@@ -62,6 +84,12 @@ export const {
     fetchWorldNewsRequest,
     fetchWorldNewsSuccess,
     fetchWorldNewsFailure,
+    fetchBusinessNewsRequest,
+    fetchBusinessNewsSuccess,
+    fetchBusinessNewsFailure,
+    fetchScienceNewsRequest,
+    fetchScienceNewsSuccess,
+    fetchScienceNewsFailure
 } = newsSlice.actions;
 
 export default newsSlice.reducer;

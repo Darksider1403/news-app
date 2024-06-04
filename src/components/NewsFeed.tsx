@@ -1,41 +1,46 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchNews } from '../actions/newsActions';
+import React, {useEffect} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
+import {fetchNews} from '../actions/newsActions';
 import DOMPurify from 'dompurify';
-import { RootState, AppDispatch } from '../store';
+import {RootState, AppDispatch} from '../store';
 
 const NewsFeed: React.FC = () => {
     const dispatch: AppDispatch = useDispatch();
 
     const newsState = useSelector((state: RootState) => state.news);
-    const { newsItems, isLoading, error } = newsState;
+    const {newsItems, isLoading, error} = newsState;
 
     useEffect(() => {
         dispatch(fetchNews());
     }, [dispatch]);
 
     return (
-        <div>
+        <div className="container mx-auto p-4">
             {isLoading ? (
-                <p>Loading news items...</p>
+                <p className="text-center text-gray-500">Loading news items...</p>
             ) : error ? (
-                <p>{error}</p>
+                <p className="text-center text-red-500">{error}</p>
             ) : newsItems.length > 0 ? (
-                <ul>
+                <ul className="space-y-4">
                     {newsItems.map((item) => (
-                        <li key={item.url}>
-                            <h3>{item.title}</h3>
-                            <div
-                                dangerouslySetInnerHTML={{
-                                    __html: DOMPurify.sanitize(item.content_html || item.summary),
-                                }}
+                        <li key={item.url} className="bg-white p-4 shadow-md rounded-lg">
+                            <h3 className="text-xl font-bold mb-2">{item.title}</h3>
+                            <div className="prose"
+                                 dangerouslySetInnerHTML={{
+                                     __html: DOMPurify.sanitize(item.content_html || item.summary),
+                                 }}
                             />
-                            <a href={item.url} target="_blank" rel="noopener noreferrer">Read more</a>
+                            <a href={item.url}
+                               target="_blank"
+                               rel="noopener noreferrer"
+                               className="text-blue-500 hover:underline mt-2 block">
+                                Read more
+                            </a>
                         </li>
                     ))}
                 </ul>
             ) : (
-                <p>No news items available.</p>
+                <p className="text-center text-gray-500">No news items available.</p>
             )}
         </div>
     );
