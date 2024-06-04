@@ -38,6 +38,17 @@ const newsSlice = createSlice({
             state.isLoading = false;
             state.error = action.payload;
         },
+        fetchWorldNewsRequest(state) {
+            state.isLoading = true;
+        },
+        fetchWorldNewsSuccess(state, action: PayloadAction<any[]>) {
+            state.isLoading = false;
+            state.newsItems = action.payload;
+        },
+        fetchWorldNewsFailure(state, action: PayloadAction<string>) {
+            state.isLoading = false;
+            state.error = action.payload;
+        },
     },
 });
 
@@ -48,6 +59,9 @@ export const {
     fetchBreakingNewsRequest,
     fetchBreakingNewsSuccess,
     fetchBreakingNewsFailure,
+    fetchWorldNewsRequest,
+    fetchWorldNewsSuccess,
+    fetchWorldNewsFailure,
 } = newsSlice.actions;
 
 export default newsSlice.reducer;

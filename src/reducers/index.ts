@@ -4,6 +4,7 @@ import newsReducer from './newsReducer';
 const rootReducer = combineReducers({
     news: newsReducer,
     breakingNews: newsReducer,
+    worldNews: newsReducer,
 });
 
 export default rootReducer;
