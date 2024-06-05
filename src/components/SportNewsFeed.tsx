@@ -1,23 +1,22 @@
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import {fetchBusinessNews} from '../actions/newsActions';
+import {fetchSportsNews} from '../actions/newsActions';
 import DOMPurify from 'dompurify';
 import {RootState, AppDispatch} from '../store';
 
-const BusinessNewsFeed: React.FC = () => {
+const SportNewsFeed: React.FC = () => {
     const dispatch: AppDispatch = useDispatch();
-
-    const newsState = useSelector((state: RootState) => state.businessNews);
+    const newsState = useSelector((state: RootState) => state.sportsNews);
     const {newsItems, isLoading, error} = newsState;
 
     useEffect(() => {
-        dispatch(fetchBusinessNews());
+        dispatch(fetchSportsNews());
     }, [dispatch]);
 
     return (
         <div className="container mx-auto p-4">
             {isLoading ? (
-                <p className="text-center text-gray-500">Loading business news items...</p>
+                <p className="text-center text-gray-500">Loading sports news items...</p>
             ) : error ? (
                 <p className="text-center text-red-500">{error}</p>
             ) : newsItems.length > 0 ? (
@@ -30,21 +29,20 @@ const BusinessNewsFeed: React.FC = () => {
                             <h3 className="text-xl font-bold mb-2">{item.title}</h3>
                             <div className="prose"
                                  dangerouslySetInnerHTML={{
-                                     __html: DOMPurify.sanitize(item.content_html || item.summary),
+                                     __html: DOMPurify.sanitize(item.content_html, item.summary),
                                  }}
                             />
                             <a href={item.url}
-                               target="_blank"
-                               rel="noopener noreferrer"
+                               target="_blank" rel="noopener noreferrer"
                                className="text-blue-500 hover:underline mt-2 block">Read more</a>
                         </li>
                     ))}
                 </ul>
             ) : (
-                <p className="text-center text-gray-500">No business news items available.</p>
+                <p className="text-center text-gray-500">No sports news items found.</p>
             )}
         </div>
     );
 };
 
-export default BusinessNewsFeed;
+export default SportNewsFeed;

@@ -22,13 +22,16 @@ const BreakingNewsFeed: React.FC = () => {
                 <p className="space-y-4">{error}</p>
             ) : newsItems.length > 0 ? (
                 <ul>
-                    {newsItems.map((item) => (
-                        <li key={item.url} className="bg-white p-4 shadow-md rounded-lg">
-                            <h3>{item.title}</h3>
+                    {newsItems.map((item, index) => (
+                        <li
+                            key={item.url}
+                            className={`bg-white p-4 shadow-md rounded-lg ${index === 0 ? 'pt-8' : ''}`}
+                        >
+                            <h3 className="text-xl font-bold mb-2">{item.title}</h3>
                             <div className="prose"
-                                dangerouslySetInnerHTML={{
-                                    __html: DOMPurify.sanitize(item.content_html || item.summary),
-                                }}
+                                 dangerouslySetInnerHTML={{
+                                     __html: DOMPurify.sanitize(item.content_html || item.summary),
+                                 }}
                             />
                             <a href={item.url}
                                target="_blank"

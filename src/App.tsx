@@ -6,6 +6,7 @@ import BreakingNewsFeed from './components/BreakingNewsFeed';
 import WorldNewsFeed from "./components/WorldNewsFeed";
 import BusinessNewsFeed from "./components/BusinessNewsFeed";
 import ScienceNewsFeed from "./components/ScienceNewsFeed";
+import SportNewsFeed from "./components/SportNewsFeed";
 
 function App() {
     return (
@@ -17,6 +18,7 @@ function App() {
                 <Route path="/world-news" element={<WorldNewsFeed/>}/>
                 <Route path="/business-news" element={<BusinessNewsFeed/>}/>
                 <Route path="/science-news" element={<ScienceNewsFeed/>}/>
+                <Route path="/sports-news" element={<SportNewsFeed/>}/>
             </Routes>
         </Router>
     );

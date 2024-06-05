@@ -15,7 +15,10 @@ import {
     fetchBusinessNewsFailure,
     fetchScienceNewsRequest,
     fetchScienceNewsSuccess,
-    fetchScienceNewsFailure
+    fetchScienceNewsFailure,
+    fetchSportsNewsRequest,
+    fetchSportsNewsSuccess,
+    fetchSportsNewsFailure
 } from '../reducers/newsReducer';
 
 export const fetchNews = () => async (dispatch: AppDispatch) => {
@@ -132,3 +135,26 @@ export const fetchScienceNews = () => async (dispatch: AppDispatch) => {
         }
     }
 };
+
+export const fetchSportsNews = () => async (dispatch: AppDispatch) => {
+    dispatch(fetchSportsNewsRequest());
+    try {
+        const filePaths = ['/assets/sport-news.json'];
+        const allData: any[] = [];
+
+        for (const filePath of filePaths) {
+            const response = await axios.get(filePath);
+            allData.push(...response.data.items);
+        }
+
+        allData.sort((a, b) => new Date(b.date_published).getTime() - new Date(a.date_published).getTime());
+
+        dispatch(fetchSportsNewsSuccess(allData));
+    } catch (error) {
+        if (error instanceof Error) {
+            dispatch(fetchSportsNewsFailure(error.message));
+        } else {
+            dispatch(fetchSportsNewsFailure('An unknown error occurred.'));
+        }
+    }
+}

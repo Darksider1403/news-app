@@ -21,7 +21,7 @@ const Navbar: React.FC = () => {
                                 </li>
                                 <li className="relative border-l border-gray-800 hover:bg-gray-900">
                                     <Link className="block py-3 px-6 border-b-2 border-transparent hover:border-white"
-                                          to="/breaking-news">Breaking News</Link>
+                                          to="/breaking-news">Tin nổi bật</Link>
                                 </li>
                                 <li className="relative border-l border-gray-800 hover:bg-gray-900">
                                     <Link className="block py-3 px-6 border-b-2 border-transparent hover:border-white"

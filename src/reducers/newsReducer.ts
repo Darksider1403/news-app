@@ -71,6 +71,17 @@ const newsSlice = createSlice({
             state.isLoading = false;
             state.error = action.payload;
         },
+        fetchSportsNewsRequest(state) {
+            state.isLoading = true;
+        },
+        fetchSportsNewsSuccess(state, action: PayloadAction<any[]>) {
+            state.isLoading = false;
+            state.newsItems = action.payload;
+        },
+        fetchSportsNewsFailure(state, action: PayloadAction<string>) {
+            state.isLoading = false;
+            state.error = action.payload;
+        },
     },
 });
 
@@ -89,7 +100,10 @@ export const {
     fetchBusinessNewsFailure,
     fetchScienceNewsRequest,
     fetchScienceNewsSuccess,
-    fetchScienceNewsFailure
+    fetchScienceNewsFailure,
+    fetchSportsNewsRequest,
+    fetchSportsNewsSuccess,
+    fetchSportsNewsFailure
 } = newsSlice.actions;
 
 export default newsSlice.reducer;
