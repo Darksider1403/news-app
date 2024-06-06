@@ -7,6 +7,9 @@ import WorldNewsFeed from "./components/WorldNewsFeed";
 import BusinessNewsFeed from "./components/BusinessNewsFeed";
 import ScienceNewsFeed from "./components/ScienceNewsFeed";
 import SportNewsFeed from "./components/SportNewsFeed";
+import LawNewsFeed from "./components/LawNewsFeed";
+import Footer from "./components/Footer";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
     return (
@@ -19,7 +22,10 @@ function App() {
                 <Route path="/business-news" element={<BusinessNewsFeed/>}/>
                 <Route path="/science-news" element={<ScienceNewsFeed/>}/>
                 <Route path="/sports-news" element={<SportNewsFeed/>}/>
+                <Route path="/law-news" element={<LawNewsFeed/>}/>
             </Routes>
+            <Footer/>
+            <ScrollToTop/>
         </Router>
     );
 }

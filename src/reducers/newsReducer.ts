@@ -82,6 +82,17 @@ const newsSlice = createSlice({
             state.isLoading = false;
             state.error = action.payload;
         },
+        fetchLawNewsRequest(state) {
+            state.isLoading = true;
+        },
+        fetchLawNewsSuccess(state, action: PayloadAction<any[]>) {
+            state.isLoading = false;
+            state.newsItems = action.payload;
+        },
+        fetchLawNewsFailure(state, action: PayloadAction<string>) {
+            state.isLoading = false;
+            state.error = action.payload;
+        }
     },
 });
 
@@ -103,7 +114,10 @@ export const {
     fetchScienceNewsFailure,
     fetchSportsNewsRequest,
     fetchSportsNewsSuccess,
-    fetchSportsNewsFailure
+    fetchSportsNewsFailure,
+    fetchLawNewsRequest,
+    fetchLawNewsSuccess,
+    fetchLawNewsFailure
 } = newsSlice.actions;
 
 export default newsSlice.reducer;

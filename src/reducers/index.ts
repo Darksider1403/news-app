@@ -8,6 +8,7 @@ const rootReducer = combineReducers({
     businessNews: newsReducer,
     scienceNews: newsReducer,
     sportsNews: newsReducer,
+    lawNews: newsReducer,
 });
 
 export default rootReducer;
