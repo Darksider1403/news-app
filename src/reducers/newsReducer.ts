@@ -1,123 +1,137 @@
-import {createSlice, PayloadAction} from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface NewsState {
-    newsItems: Array<any>;
-    isLoading: boolean;
-    error: string | null;
+  newsItems: Array<any>;
+  isLoading: boolean;
+  error: string | null;
 }
 
 const initialState: NewsState = {
-    newsItems: [],
-    isLoading: false,
-    error: null,
+  newsItems: [],
+  isLoading: false,
+  error: null,
 };
 
 const newsSlice = createSlice({
-    name: 'news',
-    initialState,
-    reducers: {
-        fetchNewsRequest(state) {
-            state.isLoading = true;
-        },
-        fetchNewsSuccess(state, action: PayloadAction<any[]>) {
-            state.isLoading = false;
-            state.newsItems = action.payload;
-        },
-        fetchNewsFailure(state, action: PayloadAction<string>) {
-            state.isLoading = false;
-            state.error = action.payload;
-        },
-        fetchBreakingNewsRequest(state) {
-            state.isLoading = true;
-        },
-        fetchBreakingNewsSuccess(state, action: PayloadAction<any[]>) {
-            state.isLoading = false;
-            state.newsItems = action.payload;
-        },
-        fetchBreakingNewsFailure(state, action: PayloadAction<string>) {
-            state.isLoading = false;
-            state.error = action.payload;
-        },
-        fetchWorldNewsRequest(state) {
-            state.isLoading = true;
-        },
-        fetchWorldNewsSuccess(state, action: PayloadAction<any[]>) {
-            state.isLoading = false;
-            state.newsItems = action.payload;
-        },
-        fetchWorldNewsFailure(state, action: PayloadAction<string>) {
-            state.isLoading = false;
-            state.error = action.payload;
-        },
-        fetchBusinessNewsRequest(state) {
-            state.isLoading = true;
-        },
-        fetchBusinessNewsSuccess(state, action: PayloadAction<any[]>) {
-            state.isLoading = false;
-            state.newsItems = action.payload;
-        },
-        fetchBusinessNewsFailure(state, action: PayloadAction<string>) {
-            state.isLoading = false;
-            state.error = action.payload;
-        },
-        fetchScienceNewsRequest(state) {
-            state.isLoading = true;
-        },
-        fetchScienceNewsSuccess(state, action: PayloadAction<any[]>) {
-            state.isLoading = false;
-            state.newsItems = action.payload;
-        },
-        fetchScienceNewsFailure(state, action: PayloadAction<string>) {
-            state.isLoading = false;
-            state.error = action.payload;
-        },
-        fetchSportsNewsRequest(state) {
-            state.isLoading = true;
-        },
-        fetchSportsNewsSuccess(state, action: PayloadAction<any[]>) {
-            state.isLoading = false;
-            state.newsItems = action.payload;
-        },
-        fetchSportsNewsFailure(state, action: PayloadAction<string>) {
-            state.isLoading = false;
-            state.error = action.payload;
-        },
-        fetchLawNewsRequest(state) {
-            state.isLoading = true;
-        },
-        fetchLawNewsSuccess(state, action: PayloadAction<any[]>) {
-            state.isLoading = false;
-            state.newsItems = action.payload;
-        },
-        fetchLawNewsFailure(state, action: PayloadAction<string>) {
-            state.isLoading = false;
-            state.error = action.payload;
-        }
+  name: "news",
+  initialState,
+  reducers: {
+    fetchNewsRequest(state) {
+      state.isLoading = true;
     },
+    fetchNewsSuccess(state, action: PayloadAction<any[]>) {
+      state.isLoading = false;
+      state.newsItems = action.payload;
+    },
+    fetchNewsFailure(state, action: PayloadAction<string>) {
+      state.isLoading = false;
+      state.error = action.payload;
+    },
+    fetchBreakingNewsRequest(state) {
+      state.isLoading = true;
+    },
+    fetchBreakingNewsSuccess(state, action: PayloadAction<any[]>) {
+      state.isLoading = false;
+      state.newsItems = action.payload;
+    },
+    fetchBreakingNewsFailure(state, action: PayloadAction<string>) {
+      state.isLoading = false;
+      state.error = action.payload;
+    },
+    fetchWorldNewsRequest(state) {
+      state.isLoading = true;
+    },
+    fetchWorldNewsSuccess(state, action: PayloadAction<any[]>) {
+      state.isLoading = false;
+      state.newsItems = action.payload;
+    },
+    fetchWorldNewsFailure(state, action: PayloadAction<string>) {
+      state.isLoading = false;
+      state.error = action.payload;
+    },
+    fetchBusinessNewsRequest(state) {
+      state.isLoading = true;
+    },
+    fetchBusinessNewsSuccess(state, action: PayloadAction<any[]>) {
+      state.isLoading = false;
+      state.newsItems = action.payload;
+    },
+    fetchBusinessNewsFailure(state, action: PayloadAction<string>) {
+      state.isLoading = false;
+      state.error = action.payload;
+    },
+    fetchScienceNewsRequest(state) {
+      state.isLoading = true;
+    },
+    fetchScienceNewsSuccess(state, action: PayloadAction<any[]>) {
+      state.isLoading = false;
+      state.newsItems = action.payload;
+    },
+    fetchScienceNewsFailure(state, action: PayloadAction<string>) {
+      state.isLoading = false;
+      state.error = action.payload;
+    },
+    fetchSportsNewsRequest(state) {
+      state.isLoading = true;
+    },
+    fetchSportsNewsSuccess(state, action: PayloadAction<any[]>) {
+      state.isLoading = false;
+      state.newsItems = action.payload;
+    },
+    fetchSportsNewsFailure(state, action: PayloadAction<string>) {
+      state.isLoading = false;
+      state.error = action.payload;
+    },
+    fetchLawNewsRequest(state) {
+      state.isLoading = true;
+    },
+    fetchLawNewsSuccess(state, action: PayloadAction<any[]>) {
+      state.isLoading = false;
+      state.newsItems = action.payload;
+    },
+    fetchLawNewsFailure(state, action: PayloadAction<string>) {
+      state.isLoading = false;
+      state.error = action.payload;
+    },
+    fetchEducationNewsRequest(state) {
+      state.isLoading = true;
+    },
+    fetchEducationNewsSuccess(state, action: PayloadAction<any[]>) {
+      state.isLoading = false;
+      state.newsItems = action.payload;
+    },
+    fetchEducationNewsFailure(state, action: PayloadAction<string>) {
+      state.isLoading = false;
+      state.error = action.payload;
+    },
+  },
 });
 
 export const {
-    fetchNewsRequest,
-    fetchNewsSuccess,
-    fetchNewsFailure,
-    fetchBreakingNewsRequest,
-    fetchBreakingNewsSuccess,
-    fetchBreakingNewsFailure,
-    fetchWorldNewsRequest,
-    fetchWorldNewsSuccess,
-    fetchWorldNewsFailure,
-    fetchBusinessNewsRequest,
-    fetchBusinessNewsSuccess,
-    fetchBusinessNewsFailure,
-    fetchScienceNewsRequest,
-    fetchScienceNewsSuccess,
-    fetchScienceNewsFailure,
-    fetchSportsNewsRequest,
-    fetchSportsNewsSuccess,
-    fetchSportsNewsFailure,
-    fetchLawNewsRequest,
-    fetchLawNewsSuccess,
-    fetchLawNewsFailure
+  fetchNewsRequest,
+  fetchNewsSuccess,
+  fetchNewsFailure,
+  fetchBreakingNewsRequest,
+  fetchBreakingNewsSuccess,
+  fetchBreakingNewsFailure,
+  fetchWorldNewsRequest,
+  fetchWorldNewsSuccess,
+  fetchWorldNewsFailure,
+  fetchBusinessNewsRequest,
+  fetchBusinessNewsSuccess,
+  fetchBusinessNewsFailure,
+  fetchScienceNewsRequest,
+  fetchScienceNewsSuccess,
+  fetchScienceNewsFailure,
+  fetchSportsNewsRequest,
+  fetchSportsNewsSuccess,
+  fetchSportsNewsFailure,
+  fetchLawNewsRequest,
+  fetchLawNewsSuccess,
+  fetchLawNewsFailure,
+  fetchEducationNewsRequest,
+  fetchEducationNewsSuccess,
+  fetchEducationNewsFailure,
 } = newsSlice.actions;
 
 export default newsSlice.reducer;

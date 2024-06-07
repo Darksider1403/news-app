@@ -28,12 +28,10 @@ const ScrollToTop: React.FC = () => {
     }, []);
 
     return (
-        <a
-            href="#"
+        <a href="#"
             onClick={scrollToTop}
-            className={`fixed p-4 rounded bg-gray-100 border border-gray-100 text-gray-500 dark:bg-gray-900 dark:border-gray-800 right-4 bottom-4 ${
-                isVisible ? 'block' : 'hidden'
-            }`}
+            className={`fixed p-4 rounded bg-gray-100 border border-gray-100 text-gray-500 dark:bg-gray-900 dark:border-gray-800 right-4 bottom-4 ${isVisible ? 'block' : 'hidden'
+                }`}
             aria-label="Scroll To Top"
         >
             <svg width="1rem" height="1rem" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
