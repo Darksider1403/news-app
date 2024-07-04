@@ -7,7 +7,6 @@ import WorldNewsFeed from "./components/WorldNewsFeed";
 import BusinessNewsFeed from "./components/BusinessNewsFeed";
 import ScienceNewsFeed from "./components/ScienceNewsFeed";
 import SportNewsFeed from "./components/SportNewsFeed";
-
 import Euro2024NewsFeed from "./components/Euro2024NewsFeed";
 
 function App() {
@@ -21,6 +20,7 @@ function App() {
                 <Route path="/business-news" element={<BusinessNewsFeed/>}/>
                 <Route path="/science-news" element={<ScienceNewsFeed/>}/>
                 <Route path="/sports-news" element={<SportNewsFeed/>}/>
+                <Route path="/euro-news" element={<Euro2024NewsFeed/>}/>
             </Routes>
         </Router>
     );
