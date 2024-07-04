@@ -1,17 +1,17 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchBreakingNews } from '../actions/newsActions'; //sửa chỗ nàyy
+import { fetchEuro2024 } from '../actions/newsActions'; // chua sua cho nay
 import DOMPurify from 'dompurify';
 import { RootState, AppDispatch } from '../store';
 
-const BreakingNewsFeed: React.FC = () => {
+const Euro2024NewsFeed: React.FC = () => {
     const dispatch: AppDispatch = useDispatch();
 
-    const newsState = useSelector((state: RootState) => state.breakingNews);
+    const newsState = useSelector((state: RootState) => state.euro2024News);
     const { newsItems, isLoading, error } = newsState;
 
     useEffect(() => {
-        dispatch(fetchBreakingNews());
+        dispatch(fetchEuro2024());
     }, [dispatch]);
 
     return (
@@ -45,4 +45,4 @@ const BreakingNewsFeed: React.FC = () => {
     );
 };
 
-export default BreakingNewsFeed;
+export default Euro2024NewsFeed;

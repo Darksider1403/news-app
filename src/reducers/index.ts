@@ -8,6 +8,7 @@ const rootReducer = combineReducers({
     businessNews: newsReducer,
     scienceNews: newsReducer,
     sportsNews: newsReducer,
+    euro2024News: newsReducer
 });
 
 export default rootReducer;

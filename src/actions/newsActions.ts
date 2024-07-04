@@ -18,7 +18,10 @@ import {
     fetchScienceNewsFailure,
     fetchSportsNewsRequest,
     fetchSportsNewsSuccess,
-    fetchSportsNewsFailure
+    fetchSportsNewsFailure,
+    fetchEuroNewsRequest,
+    fetchEuroNewsFailure,
+    fetchEuroNewsSuccess
 } from '../reducers/newsReducer';
 
 export const fetchNews = () => async (dispatch: AppDispatch) => {
@@ -158,3 +161,28 @@ export const fetchSportsNews = () => async (dispatch: AppDispatch) => {
         }
     }
 }
+
+//Euro news
+export const fetchEuro2024 = () => async (dispatch: AppDispatch) => {
+    dispatch(fetchEuroNewsRequest());
+    try {
+        const filePaths = ['/assets/euro2024-news.json'];
+        const allData: any[] = [];
+
+        for (const filePath of filePaths) {
+            const response = await axios.get(filePath);
+            allData.push(...response.data.items);
+        }
+
+        allData.sort((a, b) => new Date(b.date_published).getTime() - new Date(a.date_published).getTime());
+
+        dispatch(fetchEuroNewsSuccess(allData));
+    } catch (error) {
+        if (error instanceof Error) {
+            dispatch(fetchEuroNewsFailure(error.message));
+        } else {
+            dispatch(fetchEuroNewsFailure('An unknown error occurred.'));
+        }
+    }
+}
+
