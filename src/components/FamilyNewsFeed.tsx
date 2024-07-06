@@ -1,23 +1,23 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchEducationNews } from '../actions/newsActions';
+import { fetchFamilyNews } from '../actions/newsActions';
 import DOMPurify from 'dompurify';
 import { RootState, AppDispatch } from '../store';
 
-const EducationNewsFeed: React.FC = () => {
+const FamilyNewsFeed: React.FC = () => {
     const dispatch: AppDispatch = useDispatch();
 
     const newsState = useSelector((state: RootState) => state.news);
     const { newsItems, isLoading, error } = newsState;
 
     useEffect(() => {
-        dispatch(fetchEducationNews());
+        dispatch(fetchFamilyNews());
     }, [dispatch]);
 
     return (
         <div className="container mx-auto p-4">
             {isLoading ? (
-                <p className="text-center text-gray-500">Loading Education news items...</p>
+                <p className="text-center text-gray-500">Loading Family news items...</p>
             ) : error ? (
                 <p className="space-y-4">{error}</p>
             ) : newsItems.length > 0 ? (
@@ -39,10 +39,10 @@ const EducationNewsFeed: React.FC = () => {
                     ))}
                 </ul>
             ) : (
-                <p className="text-center text-gray-500">No Education news items available.</p>
+                <p className="text-center text-gray-500">No Family news items available.</p>
             )}
         </div>
     );
 };
 
-export default EducationNewsFeed;
+export default FamilyNewsFeed;

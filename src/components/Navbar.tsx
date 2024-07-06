@@ -40,10 +40,14 @@ const Navbar: React.FC = () => {
                                           to="/sports-news">Thể thao</Link>
                                 </li>
 
+                                <li className="relative border-l border-gray-800 hover:bg-gray-900">
+                                    <Link className="block py-3 px-6 border-b-2 border-transparent hover:border-white"
+                                          to="/education-news">Giáo dục</Link>
+                                </li>
 
                                 <li className="relative border-l border-gray-800 hover:bg-gray-900">
                                     <Link className="block py-3 px-6 border-b-2 border-transparent hover:border-white"
-                                          to="/sports-news">Euro2024</Link>
+                                          to="/family-news">Gia Đình</Link>
                                 </li>
                             </ul>
                         </div>

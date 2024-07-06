@@ -19,9 +19,12 @@ import {
     fetchSportsNewsRequest,
     fetchSportsNewsSuccess,
     fetchSportsNewsFailure,
-    fetchEuroNewsRequest,
-    fetchEuroNewsFailure,
-    fetchEuroNewsSuccess
+    fetchEducationNewsFailure,
+    fetchEducationNewsRequest,
+    fetchEducationNewsSuccess,
+    fetchFamilyNewsRequest,
+    fetchFamilyNewsSuccess,
+    fetchFamilyNewsFailure
 } from '../reducers/newsReducer';
 
 export const fetchNews = () => async (dispatch: AppDispatch) => {
@@ -163,10 +166,10 @@ export const fetchSportsNews = () => async (dispatch: AppDispatch) => {
 }
 
 
-export const fetchEuro2024 = () => async (dispatch: AppDispatch) => {
-    dispatch(fetchEuroNewsRequest());
+export const fetchEducationNews = () => async (dispatch: AppDispatch) => {
+    dispatch(fetchEducationNewsRequest());
     try {
-        const filePaths = ['/assets/euro2024-news.json'];
+        const filePaths = ['/assets/education-news.json'];
         const allData: any[] = [];
 
         for (const filePath of filePaths) {
@@ -176,12 +179,35 @@ export const fetchEuro2024 = () => async (dispatch: AppDispatch) => {
 
         allData.sort((a, b) => new Date(b.date_published).getTime() - new Date(a.date_published).getTime());
 
-        dispatch(fetchEuroNewsSuccess(allData));
+        dispatch(fetchEducationNewsSuccess(allData));
     } catch (error) {
         if (error instanceof Error) {
-            dispatch(fetchEuroNewsFailure(error.message));
+            dispatch(fetchEducationNewsFailure(error.message));
         } else {
-            dispatch(fetchEuroNewsFailure('An unknown error occurred.'));
+            dispatch(fetchEducationNewsFailure('An unknown error occurred.'));
+        }
+    }
+}
+
+export const fetchFamilyNews = () => async (dispatch: AppDispatch) => {
+    dispatch(fetchFamilyNewsRequest());
+    try {
+        const filePaths = ['/assets/family-news.json'];
+        const allData: any[] = [];
+
+        for (const filePath of filePaths) {
+            const response = await axios.get(filePath);
+            allData.push(...response.data.items);
+        }
+
+        allData.sort((a, b) => new Date(b.date_published).getTime() - new Date(a.date_published).getTime());
+
+        dispatch(fetchFamilyNewsSuccess(allData));
+    } catch (error) {
+        if (error instanceof Error) {
+            dispatch(fetchFamilyNewsFailure(error.message));
+        } else {
+            dispatch(fetchFamilyNewsFailure('An unknown error occurred.'));
         }
     }
 }

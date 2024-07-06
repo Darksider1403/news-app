@@ -95,6 +95,32 @@ const newsSlice = createSlice({
             state.isLoading = false;
             state.error = action.payload;
         },
+
+        //EducationNews
+        fetchEducationNewsRequest(state) {
+            state.isLoading = true;
+        },
+        fetchEducationNewsSuccess(state, action: PayloadAction<any[]>) {
+            state.isLoading = false;
+            state.newsItems = action.payload;
+        },
+        fetchEducationNewsFailure(state, action: PayloadAction<string>) {
+            state.isLoading = false;
+            state.error = action.payload;
+        },
+
+        //FamilyNews
+        fetchFamilyNewsRequest(state) {
+            state.isLoading = true;
+        },
+        fetchFamilyNewsSuccess(state, action: PayloadAction<any[]>) {
+            state.isLoading = false;
+            state.newsItems = action.payload;
+        },
+        fetchFamilyNewsFailure(state, action: PayloadAction<string>) {
+            state.isLoading = false;
+            state.error = action.payload;
+        },
     },
 });
 
@@ -117,9 +143,12 @@ export const {
     fetchSportsNewsRequest,
     fetchSportsNewsSuccess,
     fetchSportsNewsFailure,
-    fetchEuroNewsFailure,
-    fetchEuroNewsRequest,
-    fetchEuroNewsSuccess
+    fetchEducationNewsFailure,
+    fetchEducationNewsRequest,
+    fetchEducationNewsSuccess,
+    fetchFamilyNewsFailure,
+    fetchFamilyNewsSuccess,
+    fetchFamilyNewsRequest
 } = newsSlice.actions;
 
 export default newsSlice.reducer;
