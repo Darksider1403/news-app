@@ -162,7 +162,7 @@ export const fetchSportsNews = () => async (dispatch: AppDispatch) => {
     }
 }
 
-//Euro news
+
 export const fetchEuro2024 = () => async (dispatch: AppDispatch) => {
     dispatch(fetchEuroNewsRequest());
     try {
