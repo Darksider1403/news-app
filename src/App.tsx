@@ -11,21 +11,23 @@ import LawNewsFeed from "./components/LawNewsFeed";
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
 import EducationNewsFeed from "./components/EducationNewsFeed";
+import Page from "./crawData";
 
 function App() {
     return (
         <Router>
             <Navbar />
             <Routes>
-                <Route path="/" element={<NewsFeed />} />
+                {/* <Route path="/" element={<NewsFeed />} />
                 <Route path="/breaking-news" element={<BreakingNewsFeed />} />
                 <Route path="/world-news" element={<WorldNewsFeed />} />
                 <Route path="/business-news" element={<BusinessNewsFeed />} />
                 <Route path="/science-news" element={<ScienceNewsFeed />} />
                 <Route path="/sports-news" element={<SportNewsFeed />} />
                 <Route path="/law-news" element={<LawNewsFeed />} />
-                <Route path="/education-news" element={<EducationNewsFeed />} />
+                <Route path="/education-news" element={<EducationNewsFeed />} /> */}
             </Routes>
+            <Page url="24h.com.vn/upload/rss/phithuongkyquac.rss"></Page>
             <Footer />
             <ScrollToTop />
         </Router>

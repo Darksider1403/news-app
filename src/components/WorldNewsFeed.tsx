@@ -22,13 +22,14 @@ const WorldNewsFeed: React.FC = () => {
             ) : newsItems.length > 0 ? (
                 <ul className="space-y-4">
                     {newsItems.map((item, index) => (
-                        <li key={item.url}
+                        <li
+                            key={item.url}
                             className={`bg-white p-4 shadow-md rounded-lg ${index === 0 ? 'pt-8' : ''}`}
                         >
                             <h3 className="text-xl font-bold mb-2">{item.title}</h3>
                             <div className="prose"
                                 dangerouslySetInnerHTML={{
-                                    __html: DOMPurify.sanitize(item.content_html, item.summary),
+                                    __html: DOMPurify.sanitize(item.content_html || item.summary),
                                 }}
                             />
                             <a href={item.url}
