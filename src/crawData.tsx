@@ -44,7 +44,7 @@ const Page: React.FC<{ url: string }> = ({ url }) => {
             ) : (
                 <div>
                     {rssItems.map((item, index) => (
-                        <div key={index}>
+                        <div key={index} className={index === 0 ? 'pt-20' : ''}>
                             <h2><a href={item.link} target="_blank" rel="noopener noreferrer">{item.title}</a></h2>
                             <div dangerouslySetInnerHTML={{ __html: item.description }} />
                             <p>Ngày đăng: {item.pubDate}</p>

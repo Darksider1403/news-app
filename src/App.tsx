@@ -21,6 +21,9 @@ function App() {
                 <Route path="/tai-chinh-bat-dong-san" element={<Page url="https://24h.com.vn/upload/rss/taichinhbatdongsan.rss" />} />
                 <Route path="/am-thuc" element={<Page url="https://24h.com.vn/upload/rss/amthuc.rss" />} />
                 <Route path="/phi-thuong-ki-quac" element={<Page url="https://24h.com.vn/upload/rss/phithuongkyquac.rss" />} />
+                <Route path="/long-text-item-1" element={<div>Long Text Item 1</div>} />
+                <Route path="/long-text-item-2" element={<div>Long Text Item 2</div>} />
+                <Route path="/long-text-item-3" element={<div>Long Text Item 3</div>} />
             </Routes>
             <Footer />
             <ScrollToTop />
