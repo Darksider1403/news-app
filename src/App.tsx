@@ -1,16 +1,8 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
 import Navbar from "./components/Navbar";
-import NewsFeed from "./components/NewsFeed";
-import BreakingNewsFeed from "./components/BreakingNewsFeed";
-import WorldNewsFeed from "./components/WorldNewsFeed";
-import BusinessNewsFeed from "./components/BusinessNewsFeed";
-import ScienceNewsFeed from "./components/ScienceNewsFeed";
-import SportNewsFeed from "./components/SportNewsFeed";
-import LawNewsFeed from "./components/LawNewsFeed";
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
-import EducationNewsFeed from "./components/EducationNewsFeed";
 import Page from "./crawData";
 
 function App() {
@@ -18,16 +10,18 @@ function App() {
         <Router>
             <Navbar />
             <Routes>
-                {/* <Route path="/" element={<NewsFeed />} />
-                <Route path="/breaking-news" element={<BreakingNewsFeed />} />
-                <Route path="/world-news" element={<WorldNewsFeed />} />
-                <Route path="/business-news" element={<BusinessNewsFeed />} />
-                <Route path="/science-news" element={<ScienceNewsFeed />} />
-                <Route path="/sports-news" element={<SportNewsFeed />} />
-                <Route path="/law-news" element={<LawNewsFeed />} />
-                <Route path="/education-news" element={<EducationNewsFeed />} /> */}
+                <Route path="/" element={<Navigate to="/home" />} />
+                <Route path="/home" element={<Page url="https://24h.com.vn/upload/rss/trangchu24h.rss" />} />
+                <Route path="/tin-tuc-trong-ngay" element={<Page url="https://24h.com.vn/upload/rss/tintuctrongngay.rss" />} />
+                <Route path="/bong-da" element={<Page url="https://24h.com.vn/upload/rss/bongda.rss" />} />
+                <Route path="/asian-cup-2019" element={<Page url="https://24h.com.vn/upload/rss/asiancup2019.rss" />} />
+                <Route path="/an-ninh-hinh-su" element={<Page url="https://24h.com.vn/upload/rss/anninhhinhsu.rss" />} />
+                <Route path="/thoi-trang" element={<Page url="https://24h.com.vn/upload/rss/thoitrang.rss" />} />
+                <Route path="/thoi-trang-hitech" element={<Page url="https://24h.com.vn/upload/rss/thoitranghitech.rss" />} />
+                <Route path="/tai-chinh-bat-dong-san" element={<Page url="https://24h.com.vn/upload/rss/taichinhbatdongsan.rss" />} />
+                <Route path="/am-thuc" element={<Page url="https://24h.com.vn/upload/rss/amthuc.rss" />} />
+                <Route path="/phi-thuong-ki-quac" element={<Page url="https://24h.com.vn/upload/rss/phithuongkyquac.rss" />} />
             </Routes>
-            <Page url="24h.com.vn/upload/rss/phithuongkyquac.rss"></Page>
             <Footer />
             <ScrollToTop />
         </Router>

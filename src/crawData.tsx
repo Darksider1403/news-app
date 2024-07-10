@@ -35,7 +35,7 @@ const Page: React.FC<{ url: string }> = ({ url }) => {
         };
 
         fetchData();
-    }, []);
+    }, [url]);
 
     return (
         <div>
@@ -48,13 +48,12 @@ const Page: React.FC<{ url: string }> = ({ url }) => {
                             <h2><a href={item.link} target="_blank" rel="noopener noreferrer">{item.title}</a></h2>
                             <div dangerouslySetInnerHTML={{ __html: item.description }} />
                             <p>Ngày đăng: {item.pubDate}</p>
-                            <hr />
                         </div>
                     ))}
                 </div>
             )}
         </div>
     );
-};
+}
 
 export default Page;
