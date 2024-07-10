@@ -10,59 +10,69 @@ const Navbar: React.FC = () => {
                         <div className="max-w-10 text-2xl font-bold capitalize text-white flex items-center">
                             <Link
                                 className="block py-3 px-6 border-b-2 border-transparent hover:border-white"
-                                to="/"> News
+                                to="/home"> News
                             </Link>
                         </div>
                         <div className="flex">
                             <ul className="navbar hidden lg:flex lg:flex-row text-gray-400 text-sm items-center font-bold">
                                 <li className="relative border-l border-gray-800 hover:bg-gray-900">
-                                </li>
-                                <li className="dropdown relative border-l border-gray-800 hover:bg-gray-900">
                                     <Link
                                         className="block py-3 px-6 border-b-2 border-transparent hover:border-white"
-                                        to="/">Mới nhất
+                                        to="/home">Mới nhất
                                     </Link>
                                 </li>
                                 <li className="relative border-l border-gray-800 hover:bg-gray-900">
                                     <Link
                                         className="block py-3 px-6 border-b-2 border-transparent hover:border-white"
-                                        to="/breaking-news">Tin nổi bật
+                                        to="/tin-tuc-trong-ngay">Tin tức trong ngày
                                     </Link>
                                 </li>
                                 <li className="relative border-l border-gray-800 hover:bg-gray-900">
                                     <Link
                                         className="block py-3 px-6 border-b-2 border-transparent hover:border-white"
-                                        to="/world-news">Thế giới
+                                        to="/bong-da">Bóng đá
                                     </Link>
                                 </li>
                                 <li className="relative border-l border-gray-800 hover:bg-gray-900">
                                     <Link
                                         className="block py-3 px-6 border-b-2 border-transparent hover:border-white"
-                                        to="/business-news">Kinh doanh
+                                        to="/asian-cup-2019">Asian cup 2019
                                     </Link>
                                 </li>
                                 <li className="relative border-l border-gray-800 hover:bg-gray-900">
                                     <Link
                                         className="block py-3 px-6 border-b-2 border-transparent hover:border-white"
-                                        to="/science-news">Khoa học
+                                        to="/an-ninh-hinh-su">An ninh - hình sự
                                     </Link>
                                 </li>
                                 <li className="relative border-l border-gray-800 hover:bg-gray-900">
                                     <Link
                                         className="block py-3 px-6 border-b-2 border-transparent hover:border-white"
-                                        to="/sports-news">Thể thao
+                                        to="/thoi-trang">Thời trang
                                     </Link>
                                 </li>
                                 <li className="relative border-l border-gray-800 hover:bg-gray-900">
                                     <Link
                                         className="block py-3 px-6 border-b-2 border-transparent hover:border-white"
-                                        to="/law-news">Pháp luật
+                                        to="/thoi-trang-hitech">Thời trang Hi-tech
                                     </Link>
                                 </li>
                                 <li className="relative border-l border-gray-800 hover:bg-gray-900">
                                     <Link
                                         className="block py-3 px-6 border-b-2 border-transparent hover:border-white"
-                                        to="/education-news">Giáo dục
+                                        to="/tai-chinh-bat-dong-san">Tài chính - Bất động sản
+                                    </Link>
+                                </li>
+                                <li className="relative border-l border-gray-800 hover:bg-gray-900">
+                                    <Link
+                                        className="block py-3 px-6 border-b-2 border-transparent hover:border-white"
+                                        to="/am-thuc">Ẩm thực
+                                    </Link>
+                                </li>
+                                <li className="relative border-l border-gray-800 hover:bg-gray-900">
+                                    <Link
+                                        className="block py-3 px-6 border-b-2 border-transparent hover:border-white"
+                                        to="/phi-thuong-ki-quac">Phi thường - kỳ quặc
                                     </Link>
                                 </li>
                             </ul>
