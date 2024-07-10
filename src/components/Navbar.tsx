@@ -83,7 +83,7 @@ const Navbar: React.FC = () => {
                                         className="block py-3 px-6 border-b-2 border-transparent hover:border-white flex items-center"
                                         onClick={toggleDropdown}
                                     >
-                                        Dropdown
+                                        More
                                         <svg
                                             className={`w-4 h-4 ml-2 transition-transform ${dropdownOpen ? 'rotate-180' : ''}`}
                                             fill="none"
