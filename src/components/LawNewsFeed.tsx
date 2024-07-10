@@ -1,22 +1,23 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchSportsNews } from '../actions/newsActions';
+import { fetchLawNews } from '../actions/newsActions';
 import DOMPurify from 'dompurify';
 import { RootState, AppDispatch } from '../store';
 
-const SportNewsFeed: React.FC = () => {
+const LawNewsFeed: React.FC = () => {
     const dispatch: AppDispatch = useDispatch();
-    const newsState = useSelector((state: RootState) => state.sportsNews);
+
+    const newsState = useSelector((state: RootState) => state.lawNews);
     const { newsItems, isLoading, error } = newsState;
 
     useEffect(() => {
-        dispatch(fetchSportsNews());
+        dispatch(fetchLawNews());
     }, [dispatch]);
 
     return (
         <div className="container mx-auto p-4">
             {isLoading ? (
-                <p className="text-center text-gray-500">Loading sports news items...</p>
+                <p className="text-center text-gray-500">Loading law news items...</p>
             ) : error ? (
                 <p className="text-center text-red-500">{error}</p>
             ) : newsItems.length > 0 ? (
@@ -28,20 +29,21 @@ const SportNewsFeed: React.FC = () => {
                             <h3 className="text-xl font-bold mb-2">{item.title}</h3>
                             <div className="prose"
                                 dangerouslySetInnerHTML={{
-                                    __html: DOMPurify.sanitize(item.content_html, item.summary),
+                                    __html: DOMPurify.sanitize(item.content_html || item.summary),
                                 }}
                             />
                             <a href={item.url}
-                                target="_blank" rel="noopener noreferrer"
+                                target="_blank"
+                                rel="noopener noreferrer"
                                 className="text-blue-500 hover:underline mt-2 block">Read more</a>
                         </li>
                     ))}
                 </ul>
             ) : (
-                <p className="text-center text-gray-500">No sports news items found.</p>
+                <p className="text-center text-gray-500">No law news items available.</p>
             )}
         </div>
     );
 };
 
-export default SportNewsFeed;
+export default LawNewsFeed;
