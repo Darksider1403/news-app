@@ -14,7 +14,7 @@ const Navbar: React.FC = () => {
     };
 
     const handleMouseLeave = (event: React.MouseEvent) => {
-        if (dropdownRef.current && !dropdownRef.current.contains(event.relatedTarget as Node)) {
+        if (dropdownRef.current && event.relatedTarget instanceof Node && !dropdownRef.current.contains(event.relatedTarget)) {
             setDropdownOpen(false);
         }
     };
@@ -104,21 +104,18 @@ const Navbar: React.FC = () => {
                                                 <Link
                                                     className="block py-3 px-6"
                                                     to="/cong-nghe-thong-tin">Công nghệ thông tin
-                                             
                                                 </Link>
                                             </li>
                                             <li className="border-b border-gray-800 hover:bg-gray-900">
                                                 <Link
                                                     className="block py-3 px-6"
                                                     to="/oto">Ô tô
-                                                
                                                 </Link>
                                             </li>
                                             <li className="border-b border-gray-800 hover:bg-gray-900">
                                                 <Link
                                                     className="block py-3 px-6"
                                                     to="/thi-truong-tieu-dung">Thị trường tiêu dùng
-                                                                                            
                                                 </Link>
                                             </li>
                                             <li className="border-b border-gray-800 hover:bg-gray-900">
