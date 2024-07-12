@@ -14,7 +14,7 @@ const Navbar: React.FC = () => {
     };
 
     const handleMouseLeave = (event: React.MouseEvent) => {
-        if (dropdownRef.current && !dropdownRef.current.contains(event.relatedTarget as Node)) {
+        if (dropdownRef.current && event.relatedTarget instanceof Node && !dropdownRef.current.contains(event.relatedTarget)) {
             setDropdownOpen(false);
         }
     };
@@ -103,25 +103,19 @@ const Navbar: React.FC = () => {
                                             <li className="border-b border-gray-800 hover:bg-gray-900">
                                                 <Link
                                                     className="block py-3 px-6"
-                                                    to="/long-text-item-1"
-                                                >
-                                                    This is a long text item in the dropdown menu for testing
+                                                    to="/cong-nghe-thong-tin">Công nghệ thông tin
                                                 </Link>
                                             </li>
                                             <li className="border-b border-gray-800 hover:bg-gray-900">
                                                 <Link
                                                     className="block py-3 px-6"
-                                                    to="/long-text-item-2"
-                                                >
-                                                    Another long text item to see how it behaves in the dropdown
+                                                    to="/oto">Ô tô
                                                 </Link>
                                             </li>
                                             <li className="border-b border-gray-800 hover:bg-gray-900">
                                                 <Link
                                                     className="block py-3 px-6"
-                                                    to="/long-text-item-3"
-                                                >
-                                                    Yet another long item for ensuring the dropdown works well
+                                                    to="/thi-truong-tieu-dung">Thị trường tiêu dùng
                                                 </Link>
                                             </li>
                                             <li className="border-b border-gray-800 hover:bg-gray-900">
