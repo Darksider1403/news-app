@@ -8,6 +8,7 @@ interface RssItem {
     description: string;
     pubDate: string;
 }
+
 const Page: React.FC<{ url: string }> = ({ url }) => {
     const [rssItems, setRssItems] = useState<RssItem[]>([]);
 
@@ -38,16 +39,18 @@ const Page: React.FC<{ url: string }> = ({ url }) => {
     }, [url]);
 
     return (
-        <div>
+        <div className="container mx-auto p-4">
             {rssItems.length === 0 ? (
                 <p>Đang tải dữ liệu...</p>
             ) : (
-                <div>
+                <div className="space-y-4">
                     {rssItems.map((item, index) => (
-                        <div key={index} className={index === 0 ? 'pt-20' : ''}>
-                            <h2><a href={item.link} target="_blank" rel="noopener noreferrer">{item.title}</a></h2>
-                            <div dangerouslySetInnerHTML={{ __html: item.description }} />
-                            <p>Ngày đăng: {item.pubDate}</p>
+                        <div key={index} className={`p-4 bg-white shadow rounded-lg ${index === 0 ? 'mt-20' : ''}`}>
+                            <h2 className="text-xl font-bold mb-2">
+                                <a href={item.link} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">{item.title}</a>
+                            </h2>
+                            <div className="rss-feed text-gray-700" dangerouslySetInnerHTML={{ __html: item.description }} />
+                            <p className="text-gray-500 mt-2">Ngày đăng: {item.pubDate}</p>
                         </div>
                     ))}
                 </div>
