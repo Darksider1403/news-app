@@ -5,3 +5,19 @@
 html {
   scroll-behavior: smooth;
 }
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.spinner-border {
+  border: 4px solid transparent;
+  border-top-color: #3498db; /* You can change the color here */
+  border-radius: 50%;
+  animation: spin 4s linear infinite;
+}
