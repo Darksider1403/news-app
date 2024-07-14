@@ -104,18 +104,21 @@ const Navbar: React.FC = () => {
                                                 <Link
                                                     className="block py-3 px-6"
                                                     to="/cong-nghe-thong-tin">Công nghệ thông tin
+
                                                 </Link>
                                             </li>
                                             <li className="border-b border-gray-800 hover:bg-gray-900">
                                                 <Link
                                                     className="block py-3 px-6"
                                                     to="/oto">Ô tô
+
                                                 </Link>
                                             </li>
                                             <li className="border-b border-gray-800 hover:bg-gray-900">
                                                 <Link
                                                     className="block py-3 px-6"
                                                     to="/thi-truong-tieu-dung">Thị trường tiêu dùng
+
                                                 </Link>
                                             </li>
                                             <li className="border-b border-gray-800 hover:bg-gray-900">
@@ -133,7 +136,61 @@ const Navbar: React.FC = () => {
                                             <li className="border-b border-gray-800 hover:bg-gray-900">
                                                 <Link
                                                     className="block py-3 px-6"
-                                                    to="/asian-cup-2019">Asian cup 2019
+                                                    to="/du-lich">Du lịch
+                                                </Link>
+                                            </li>
+                                            <li className="border-b border-gray-800 hover:bg-gray-900">
+                                                <Link
+                                                    className="block py-3 px-6"
+                                                    to="/suc-khoe-doi-song">Sức khỏe - Đời sống
+                                                </Link>
+                                            </li>
+                                            <li className="border-b border-gray-800 hover:bg-gray-900">
+                                                <Link
+                                                    className="block py-3 px-6"
+                                                    to="/cuoi-24h">Cười 24h
+                                                </Link>
+                                            </li>
+                                            <li className="border-b border-gray-800 hover:bg-gray-900">
+                                                <Link
+                                                    className="block py-3 px-6"
+                                                    to="/giao-duc-du-hoc">Giáo dục - Du học
+                                                </Link>
+                                            </li>
+                                            <li className="border-b border-gray-800 hover:bg-gray-900">
+                                                <Link
+                                                    className="block py-3 px-6"
+                                                    to="/ban-tre-cuoc-song">Bạn trẻ - Cuộc sống
+                                                </Link>
+                                            </li>
+                                            <li className="border-b border-gray-800 hover:bg-gray-900">
+                                                <Link
+                                                    className="block py-3 px-6"
+                                                    to="/ca-nhac-mtv">Ca nhạc - MTV
+                                                </Link>
+                                            </li>
+                                            <li className="border-b border-gray-800 hover:bg-gray-900">
+                                                <Link
+                                                    className="block py-3 px-6"
+                                                    to="/phim">Phim
+                                                </Link>
+                                            </li>
+                                            <li className="border-b border-gray-800 hover:bg-gray-900">
+                                                <Link
+                                                    className="block py-3 px-6"
+                                                    to="/the-thao">Thể thao
+                                                </Link>
+                                            </li>
+                                            <li className="border-b border-gray-800 hover:bg-gray-900">
+                                                <Link
+                                                    className="block py-3 px-6"
+                                                    to="/lam-dep">Làm đẹp
+                                                </Link>
+                                            </li>
+                                            <li className="border-b border-gray-800 hover:bg-gray-900">
+                                                <Link
+                                                    className="block py-3 px-6"
+                                                    to="/asian-cup-2019">Asian Cup 2019
                                                 </Link>
                                             </li>
                                         </ul>
