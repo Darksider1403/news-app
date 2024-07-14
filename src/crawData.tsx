@@ -9,6 +9,16 @@ interface RssItem {
     pubDate: string;
 }
 
+const decodeHtmlEntities = (str: string): string => {
+    const textArea = document.createElement('textarea');
+    textArea.innerHTML = str;
+    return textArea.value;
+};
+
+const addImageClasses = (html: string): string => {
+    return html.replace(/<img/g, '<img class="w-full h-auto object-cover"');
+};
+
 const Page: React.FC<{ url: string }> = ({ url }) => {
     const [rssItems, setRssItems] = useState<RssItem[]>([]);
 
@@ -24,9 +34,9 @@ const Page: React.FC<{ url: string }> = ({ url }) => {
                 const xml = parser.parseFromString(text, 'text/xml');
                 const items = xml.querySelectorAll('item');
                 const rssItemsArray: RssItem[] = Array.from(items, (item) => ({
-                    title: item.querySelector('title')?.textContent || '',
+                    title: decodeHtmlEntities(item.querySelector('title')?.textContent || ''),
                     link: item.querySelector('link')?.textContent || '',
-                    description: item.querySelector('description')?.textContent || '',
+                    description: addImageClasses(decodeHtmlEntities(item.querySelector('description')?.textContent || '')),
                     pubDate: item.querySelector('pubDate')?.textContent || '',
                 }));
                 setRssItems(rssItemsArray);
