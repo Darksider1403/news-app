@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import LoadingSpinner from './LoadingSpinner';
 
 const CORS_PROXY = 'https://cors-anywhere.herokuapp.com/';
 type Props = {}
@@ -21,9 +22,11 @@ const addImageClasses = (html: string): string => {
 
 const Page: React.FC<{ url: string }> = ({ url }) => {
     const [rssItems, setRssItems] = useState<RssItem[]>([]);
+    const [loading, setLoading] = useState<boolean>(true);
 
     useEffect(() => {
         const fetchData = async () => {
+            setLoading(true);
             try {
                 const response = await fetch(`${CORS_PROXY}${url}`);
                 if (!response.ok) {
@@ -42,6 +45,8 @@ const Page: React.FC<{ url: string }> = ({ url }) => {
                 setRssItems(rssItemsArray);
             } catch (error) {
                 console.error('Lỗi khi lấy dữ liệu RSS:', error);
+            } finally {
+                setLoading(false);
             }
         };
 
@@ -50,8 +55,10 @@ const Page: React.FC<{ url: string }> = ({ url }) => {
 
     return (
         <div className="container mx-auto p-4">
-            {rssItems.length === 0 ? (
-                <p>Đang tải dữ liệu...</p>
+            {loading ? (
+                <LoadingSpinner /> // Show loading spinner when loading is true
+            ) : rssItems.length === 0 ? (
+                <p>Không có dữ liệu để hiển thị.</p>
             ) : (
                 <div className="space-y-4">
                     {rssItems.map((item, index) => (

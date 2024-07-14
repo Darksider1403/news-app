@@ -24,12 +24,11 @@ function App() {
                 <Route path="/phim" element={<Page url="https://24h.com.vn/upload/rss/phim.rss" />} />
                 <Route path="/giao-duc-du-hoc" element={<Page url="https://24h.com.vn/upload/rss/giaoducduhoc.rss" />} />
                 <Route path="/ban-tre-cuoc-song" element={<Page url="https://24h.com.vn/upload/rss/bantrecuocsong.rss" />} />
-                <Route path="/ban-tre-cuoc-song" element={<Page url="https://24h.com.vn/upload/rss/bantrecuocsong.rss" />} />
                 <Route path="/ca-nhac-mtv" element={<Page url="https://24h.com.vn/upload/rss/canhacmtv.rss" />} />
                 <Route path="/the-thao" element={<Page url="https://24h.com.vn/upload/rss/thethao.rss" />} />
                 <Route path="/phi-thuong-ki-quac" element={<Page url="https://24h.com.vn/upload/rss/phithuongkyquac.rss" />} />
-                <Route path="/cong-nghe-thong-tin" element={<Page url="https://24h.com.vn/upload/rss/congnghethongtin.rss"/>} />
-                <Route path="/oto" element={<Page url="https://24h.com.vn/upload/rss/oto.rss" />} />   
+                <Route path="/cong-nghe-thong-tin" element={<Page url="https://24h.com.vn/upload/rss/congnghethongtin.rss" />} />
+                <Route path="/oto" element={<Page url="https://24h.com.vn/upload/rss/oto.rss" />} />
                 <Route path="/thi-truong-tieu-dung" element={<Page url="https://24h.com.vn/upload/rss/thitruongtieudung.rss" />} />
                 <Route path="/du-lich" element={<Page url="https://24h.com.vn/upload/rss/dulich.rss" />} />
                 <Route path="/suc-khoe-doi-song" element={<Page url="https://24h.com.vn/upload/rss/suckhoedoisong.rss" />} />
